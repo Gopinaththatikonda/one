@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Kavitha 🩷</title>
+<title>For Kavitha &#129655;</title>
 
 <!-- Google Fonts: Dancing Script for romantic script, Quicksand for soft rounded body text -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -181,7 +181,7 @@
 
   .badge--sparkle::before,
   .badge--sparkle::after{
-    content: '✦';
+    content: '\2726';
     position: absolute;
     color: var(--soft-rose);
     font-size: 0.7rem;
@@ -374,7 +374,7 @@
   <section class="hero glass">
     <p class="hero-eyebrow">for the girl who has all my heart</p>
     <h1 class="hero-name">Kavitha</h1>
-    <p class="hero-sub">my Ammadu, my sweetest sweety ✿</p>
+    <p class="hero-sub">my Ammadu, my sweetest sweety &#10047;</p>
 
     <div class="badges">
       <span class="badge">Ammadu</span>
@@ -389,7 +389,7 @@
       You're my <span class="highlight">favorite person</span> to talk to, my
       <span class="highlight">softest place to land</span>, and the reason my
       <span class="highlight">luckiest days</span> always seem to have you in them.
-      This little page is just a small note to say — thank you for being exactly, wonderfully you.
+      This little page is just a small note to say &#8212; thank you for being exactly, wonderfully you.
     </p>
 
     <div class="cta-row">
@@ -406,35 +406,35 @@
 
     <div class="story-grid">
       <div class="story-card glass">
-        <span class="emoji">🌸</span>
+        <span class="emoji">&#127800;</span>
         <h3>Ammadu</h3>
-        <p>The name that feels like home — soft, familiar, and only ever meant for you.</p>
+        <p>The name that feels like home &#8212; soft, familiar, and only ever meant for you.</p>
       </div>
       <div class="story-card glass">
-        <span class="emoji">🍬</span>
+        <span class="emoji">&#127852;</span>
         <h3>Sweety</h3>
         <p>Because you make even the hardest days feel a little sweeter, just by being around.</p>
       </div>
       <div class="story-card glass">
-        <span class="emoji">🍀</span>
+        <span class="emoji">&#127808;</span>
         <h3>Lucky</h3>
         <p>Finding you still feels like the best kind of luck I never saw coming.</p>
       </div>
       <div class="story-card glass">
-        <span class="emoji">🎀</span>
+        <span class="emoji">&#127872;</span>
         <h3>Girl</h3>
-        <p>Simple, warm, and always said with a smile — my favorite girl, always.</p>
+        <p>Simple, warm, and always said with a smile &#8212; my favorite girl, always.</p>
       </div>
       <div class="story-card glass">
-        <span class="emoji">😄</span>
+        <span class="emoji">&#128516;</span>
         <h3>Boy</h3>
-        <p>Our little inside joke — the nickname that always gets a laugh out of both of us.</p>
+        <p>Our little inside joke &#8212; the nickname that always gets a laugh out of both of us.</p>
       </div>
     </div>
   </section>
 
   <footer>
-    made with a <span class="heart-small">♥</span> just for Kavitha
+    made with a <span class="heart-small">&#9829;</span> just for Kavitha
   </footer>
 
 </main>
@@ -446,7 +446,7 @@
      upward and fade, at random horizontal positions/speeds.
   ========================================================= */
   const heartField = document.getElementById('heart-field');
-  const heartGlyphs = ['♥', '❤', '♡'];
+  const heartGlyphs = ['\u2665', '\u2764', '\u2661'];
   const heartColors = ['#FFB6C1', '#FF69B4', '#FFD1DC'];
 
   function spawnHeart(){
@@ -478,15 +478,15 @@
   setInterval(spawnHeart, 900);
 
   /* =========================================================
-     2. "I LOVE YOU" BUTTON — cycles cute messages + ripple
+     2. "I LOVE YOU" BUTTON - cycles cute messages + ripple
   ========================================================= */
   const loveMessages = [
-    "You're my sunshine ☀️",
-    "My Sweet Ammadu 🌸",
-    "Be Mine ♥",
-    "Forever my Lucky girl 🍀",
-    "You make my heart smile 💗",
-    "So glad you're mine 🎀"
+    "You're my sunshine \u2600\uFE0F",
+    "My Sweet Ammadu \uD83C\uDF38",
+    "Be Mine \u2665",
+    "Forever my Lucky girl \uD83C\uDF40",
+    "You make my heart smile \uD83D\uDC97",
+    "So glad you're mine \uD83C\uDF80"
   ];
   let loveIndex = 0;
 
@@ -516,12 +516,12 @@
   }
 
   /* =========================================================
-     3. "SURPRISE ME" BUTTON — bursts pastel hearts outward
+     3. "SURPRISE ME" BUTTON - bursts pastel hearts outward
      from the button's position, then fades them away.
   ========================================================= */
   const surpriseBtn = document.getElementById('surpriseBtn');
   const burstField = document.getElementById('burst-field');
-  const burstGlyphs = ['💗', '💕', '♥', '❤', '✨'];
+  const burstGlyphs = ['\uD83D\uDC97', '\uD83D\uDC95', '\u2665', '\u2764', '\u2728'];
   const burstColors = ['#FF69B4', '#FFB6C1', '#FFFFFF', '#FFD1DC'];
 
   surpriseBtn.addEventListener('click', (e) => {
