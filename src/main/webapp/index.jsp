@@ -1,1064 +1,559 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>❤️ Kavitha — My Eternal Love</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <style>
-        /* ============================================================
-                   RESET & BASE
-                   ============================================================ */
-        *,
-        *::before,
-        *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #ff4d6d;
-            --primary-light: #ff8a9e;
-            --primary-dark: #c9184a;
-            --gold: #f7c948;
-            --rose: #ffe3e8;
-            --dark: #1a0709;
-            --glass-bg: rgba(255, 240, 240, 0.06);
-            --glass-border: rgba(255, 200, 200, 0.12);
-            --shadow-glow: 0 20px 80px rgba(255, 50, 50, 0.20);
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #0d0405;
-            min-height: 100vh;
-            overflow-x: hidden;
-            color: #f0e0e0;
-            line-height: 1.6;
-        }
-
-        /* ============================================================
-                   ANIMATED BACKGROUND
-                   ============================================================ */
-        .bg-canvas {
-            position: fixed;
-            inset: 0;
-            z-index: 0;
-            pointer-events: none;
-            overflow: hidden;
-        }
-
-        .bg-canvas .gradient-orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(120px);
-            opacity: 0.5;
-            animation: orbFloat 18s ease-in-out infinite alternate;
-        }
-
-        .bg-canvas .orb1 {
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, #ff4d6d, transparent 70%);
-            top: -10%;
-            left: -10%;
-            animation-duration: 22s;
-        }
-
-        .bg-canvas .orb2 {
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, #7a2b3a, transparent 70%);
-            bottom: -10%;
-            right: -10%;
-            animation-duration: 26s;
-            animation-delay: -4s;
-        }
-
-        .bg-canvas .orb3 {
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, #c9184a, transparent 70%);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            animation-duration: 30s;
-            animation-delay: -8s;
-        }
-
-        @keyframes orbFloat {
-            0% {
-                transform: translate(0, 0) scale(1);
-            }
-            33% {
-                transform: translate(60px, -40px) scale(1.1);
-            }
-            66% {
-                transform: translate(-30px, 60px) scale(0.9);
-            }
-            100% {
-                transform: translate(40px, 20px) scale(1.05);
-            }
-        }
-
-        /* ============================================================
-                   FLOATING PARTICLES (stars / hearts)
-                   ============================================================ */
-        .particles-container {
-            position: fixed;
-            inset: 0;
-            z-index: 1;
-            pointer-events: none;
-            overflow: hidden;
-        }
-
-        .particle {
-            position: absolute;
-            font-size: 18px;
-            opacity: 0.15;
-            animation: particleDrift linear infinite;
-            user-select: none;
-        }
-
-        @keyframes particleDrift {
-            0% {
-                transform: translateY(110vh) rotate(0deg) scale(0.6);
-                opacity: 0;
-            }
-            5% {
-                opacity: 0.2;
-            }
-            90% {
-                opacity: 0.2;
-            }
-            100% {
-                transform: translateY(-10vh) rotate(720deg) scale(1.2);
-                opacity: 0;
-            }
-        }
-
-        /* ============================================================
-                   MAIN WRAPPER
-                   ============================================================ */
-        .main-wrapper {
-            position: relative;
-            z-index: 2;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 30px 24px 60px;
-        }
-
-        /* ============================================================
-                   HERO SECTION
-                   ============================================================ */
-        .hero {
-            position: relative;
-            text-align: center;
-            padding: 60px 30px 50px;
-            border-radius: 80px 80px 40px 40px;
-            background: var(--glass-bg);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid var(--glass-border);
-            box-shadow: var(--shadow-glow), inset 0 1px 0 rgba(255, 255, 255, 0.04);
-            margin-bottom: 40px;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: inherit;
-            background: radial-gradient(ellipse at 30% 20%, rgba(255, 80, 80, 0.06), transparent 60%),
-                radial-gradient(ellipse at 70% 80%, rgba(255, 150, 200, 0.04), transparent 50%);
-            pointer-events: none;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            background: rgba(255, 77, 109, 0.15);
-            border: 1px solid rgba(255, 77, 109, 0.25);
-            padding: 6px 24px;
-            border-radius: 60px;
-            font-size: 12px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: var(--primary-light);
-            margin-bottom: 20px;
-            backdrop-filter: blur(4px);
-            font-weight: 500;
-        }
-
-        .hero-title {
-            font-family: 'Dancing Script', cursive;
-            font-size: clamp(48px, 12vw, 100px);
-            font-weight: 700;
-            line-height: 1.1;
-            background: linear-gradient(135deg, #fff0f0 0%, #ffb3b3 30%, #ff6b81 60%, #ff3b5c 85%, #ffb3b3 100%);
-            background-size: 300% 300%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: gradientShift 6s ease-in-out infinite alternate;
-            text-shadow: none;
-            margin-bottom: 4px;
-        }
-
-        @keyframes gradientShift {
-            0% {
-                background-position: 0% 50%;
-            }
-            100% {
-                background-position: 100% 50%;
-            }
-        }
-
-        .hero-sub {
-            font-family: 'Dancing Script', cursive;
-            font-size: clamp(24px, 5vw, 44px);
-            color: #ffb8b8;
-            text-shadow: 0 0 60px rgba(255, 120, 120, 0.15);
-            margin-top: -6px;
-            letter-spacing: 2px;
-            opacity: 0.9;
-        }
-
-        .hero-divider {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            margin: 24px auto 28px;
-            max-width: 400px;
-        }
-
-        .hero-divider .line {
-            flex: 1;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--primary-light), transparent);
-            border-radius: 4px;
-        }
-
-        .hero-divider .icon {
-            font-size: 32px;
-            color: var(--primary-light);
-            animation: pulseHeart 2s ease-in-out infinite;
-        }
-
-        @keyframes pulseHeart {
-            0%,
-            100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.25);
-            }
-        }
-
-        /* ============================================================
-                   NICKNAMES — Premium Pill Design
-                   ============================================================ */
-        .nicknames-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 14px 18px;
-            margin: 10px 0 30px;
-        }
-
-        .nickname-pill {
-            position: relative;
-            padding: 10px 30px;
-            border-radius: 60px;
-            font-family: 'Dancing Script', cursive;
-            font-size: clamp(20px, 3.5vw, 30px);
-            font-weight: 600;
-            background: rgba(255, 200, 200, 0.05);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 180, 180, 0.12);
-            color: #f0d0d0;
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            cursor: default;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-            letter-spacing: 1px;
-        }
-
-        .nickname-pill::before {
-            content: '♡';
-            position: absolute;
-            left: -6px;
-            top: -6px;
-            font-size: 12px;
-            color: var(--primary-light);
-            opacity: 0.3;
-            transition: all 0.3s ease;
-        }
-
-        .nickname-pill::after {
-            content: '♡';
-            position: absolute;
-            right: -6px;
-            bottom: -6px;
-            font-size: 12px;
-            color: var(--primary-light);
-            opacity: 0.3;
-            transition: all 0.3s ease;
-        }
-
-        .nickname-pill:hover {
-            transform: translateY(-6px) scale(1.05);
-            background: rgba(255, 100, 100, 0.12);
-            border-color: rgba(255, 120, 120, 0.35);
-            box-shadow: 0 12px 40px rgba(255, 50, 50, 0.18);
-            color: #fff5f5;
-        }
-
-        .nickname-pill:hover::before,
-        .nickname-pill:hover::after {
-            opacity: 0.8;
-            transform: scale(1.3);
-        }
-
-        .nickname-pill.special {
-            background: linear-gradient(135deg, rgba(255, 77, 109, 0.18), rgba(255, 50, 80, 0.08));
-            border-color: rgba(255, 100, 100, 0.3);
-            color: #ffd4d4;
-            font-size: clamp(24px, 4vw, 34px);
-            padding: 10px 38px;
-            box-shadow: 0 0 40px rgba(255, 50, 50, 0.08);
-        }
-
-        .nickname-pill.special::before {
-            content: '✦';
-            font-size: 16px;
-            left: -8px;
-            top: -8px;
-            opacity: 0.6;
-        }
-
-        .nickname-pill.special::after {
-            content: '✦';
-            font-size: 16px;
-            right: -8px;
-            bottom: -8px;
-            opacity: 0.6;
-        }
-
-        /* ============================================================
-                   LOVE MESSAGE
-                   ============================================================ */
-        .love-message-box {
-            background: rgba(255, 200, 200, 0.03);
-            border-radius: 40px;
-            padding: 28px 32px 32px;
-            border: 1px solid rgba(255, 200, 200, 0.06);
-            backdrop-filter: blur(4px);
-            margin: 12px 0 30px;
-            position: relative;
-        }
-
-        .love-message-box .quote-mark {
-            font-family: 'Playfair Display', serif;
-            font-size: 64px;
-            color: rgba(255, 120, 120, 0.12);
-            line-height: 1;
-            position: absolute;
-            top: 10px;
-            left: 20px;
-            font-weight: 700;
-            pointer-events: none;
-        }
-
-        .love-message-box .quote-mark.right {
-            left: auto;
-            right: 20px;
-            top: auto;
-            bottom: 10px;
-            transform: rotate(180deg);
-        }
-
-        .love-message-text {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(17px, 2.2vw, 24px);
-            font-weight: 400;
-            line-height: 1.9;
-            color: #e8d0d0;
-            text-align: center;
-            padding: 0 20px;
-            position: relative;
-            z-index: 1;
-            letter-spacing: 0.3px;
-        }
-
-        .love-message-text .highlight {
-            color: var(--primary-light);
-            font-weight: 600;
-            font-family: 'Dancing Script', cursive;
-            font-size: clamp(22px, 3vw, 34px);
-            display: inline-block;
-            animation: glowText 3s ease-in-out infinite alternate;
-        }
-
-        @keyframes glowText {
-            0% {
-                text-shadow: 0 0 10px rgba(255, 120, 120, 0.1);
-            }
-            100% {
-                text-shadow: 0 0 40px rgba(255, 80, 80, 0.3), 0 0 80px rgba(255, 50, 50, 0.08);
-            }
-        }
-
-        /* ============================================================
-                   CTA BUTTON
-                   ============================================================ */
-        .cta-group {
-            display: flex;
-            justify-content: center;
-            gap: 18px;
-            flex-wrap: wrap;
-            margin-top: 6px;
-        }
-
-        .btn-primary {
-            position: relative;
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            padding: 16px 48px;
-            border: none;
-            border-radius: 60px;
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-            font-size: 16px;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: #fff;
-            background: linear-gradient(135deg, #ff4d6d, #c9184a);
-            box-shadow: 0 8px 40px rgba(255, 0, 0, 0.25);
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 60px;
-            background: linear-gradient(135deg, #ff6b81, #e63946);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            z-index: -1;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 16px 60px rgba(255, 0, 0, 0.35);
-        }
-
-        .btn-primary:hover::before {
-            opacity: 1;
-        }
-
-        .btn-primary:active {
-            transform: scale(0.96);
-        }
-
-        .btn-primary .heart-icon {
-            font-size: 20px;
-            animation: pulseHeart 1.6s ease-in-out infinite;
-            display: inline-block;
-        }
-
-        .btn-secondary {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 16px 36px;
-            border-radius: 60px;
-            font-family: 'Inter', sans-serif;
-            font-weight: 500;
-            font-size: 15px;
-            letter-spacing: 1px;
-            color: #f0d0d0;
-            background: rgba(255, 200, 200, 0.05);
-            border: 1px solid rgba(255, 200, 200, 0.1);
-            backdrop-filter: blur(8px);
-            cursor: pointer;
-            transition: all 0.4s ease;
-            text-decoration: none;
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 200, 200, 0.1);
-            border-color: rgba(255, 200, 200, 0.2);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        /* ============================================================
-                   SECTION — STORY / TIMELINE
-                   ============================================================ */
-        .story-section {
-            margin-top: 50px;
-            padding: 40px 30px 45px;
-            border-radius: 60px 60px 40px 40px;
-            background: var(--glass-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
-            box-shadow: var(--shadow-glow);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .story-section::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: inherit;
-            background: radial-gradient(ellipse at 60% 20%, rgba(255, 80, 80, 0.04), transparent 60%);
-            pointer-events: none;
-        }
-
-        .section-label {
-            text-align: center;
-            font-size: 12px;
-            letter-spacing: 6px;
-            text-transform: uppercase;
-            color: rgba(255, 200, 200, 0.3);
-            margin-bottom: 18px;
-            font-weight: 400;
-        }
-
-        .story-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 24px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .story-card {
-            text-align: center;
-            padding: 24px 16px 22px;
-            border-radius: 32px;
-            background: rgba(255, 200, 200, 0.03);
-            border: 1px solid rgba(255, 200, 200, 0.05);
-            transition: all 0.4s ease;
-            backdrop-filter: blur(4px);
-        }
-
-        .story-card:hover {
-            transform: translateY(-6px);
-            background: rgba(255, 200, 200, 0.06);
-            border-color: rgba(255, 200, 200, 0.12);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .story-card .emoji-big {
-            font-size: 42px;
-            display: block;
-            margin-bottom: 10px;
-            filter: drop-shadow(0 4px 20px rgba(255, 80, 80, 0.1));
-        }
-
-        .story-card h4 {
-            font-family: 'Dancing Script', cursive;
-            font-size: 22px;
-            color: #ffc8c8;
-            margin-bottom: 4px;
-        }
-
-        .story-card p {
-            font-size: 14px;
-            color: rgba(255, 200, 200, 0.5);
-            font-weight: 300;
-            letter-spacing: 0.3px;
-        }
-
-        /* ============================================================
-                   FOOTER
-                   ============================================================ */
-        .footer-love {
-            margin-top: 40px;
-            text-align: center;
-            padding: 20px 0 10px;
-            border-top: 1px solid rgba(255, 200, 200, 0.04);
-        }
-
-        .footer-love p {
-            font-size: 14px;
-            color: rgba(255, 200, 200, 0.2);
-            letter-spacing: 3px;
-            font-weight: 300;
-        }
-
-        .footer-love .hearts-line {
-            font-size: 20px;
-            letter-spacing: 12px;
-            color: rgba(255, 100, 100, 0.15);
-            margin-bottom: 8px;
-        }
-
-        /* ============================================================
-                   RESPONSIVE
-                   ============================================================ */
-        @media (max-width: 768px) {
-            .main-wrapper {
-                padding: 16px 14px 40px;
-            }
-
-            .hero {
-                padding: 40px 16px 35px;
-                border-radius: 50px 50px 30px 30px;
-            }
-
-            .hero-title {
-                font-size: clamp(36px, 10vw, 60px);
-            }
-
-            .hero-sub {
-                font-size: clamp(20px, 5vw, 30px);
-            }
-
-            .nickname-pill {
-                padding: 8px 20px;
-                font-size: clamp(16px, 3vw, 22px);
-            }
-
-            .nickname-pill.special {
-                padding: 8px 26px;
-                font-size: clamp(18px, 3.5vw, 26px);
-            }
-
-            .love-message-box {
-                padding: 20px 16px 24px;
-            }
-
-            .love-message-text {
-                font-size: 16px;
-                padding: 0 8px;
-            }
-
-            .love-message-text .highlight {
-                font-size: clamp(18px, 3vw, 26px);
-            }
-
-            .btn-primary {
-                padding: 14px 32px;
-                font-size: 14px;
-            }
-
-            .btn-secondary {
-                padding: 14px 24px;
-                font-size: 13px;
-            }
-
-            .story-section {
-                padding: 30px 16px 30px;
-                border-radius: 40px 40px 30px 30px;
-            }
-
-            .story-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 14px;
-            }
-
-            .story-card {
-                padding: 18px 10px 16px;
-            }
-
-            .story-card .emoji-big {
-                font-size: 32px;
-            }
-
-            .story-card h4 {
-                font-size: 18px;
-            }
-
-            .hero-divider {
-                max-width: 280px;
-                gap: 14px;
-            }
-
-            .hero-divider .icon {
-                font-size: 24px;
-            }
-
-            .love-message-box .quote-mark {
-                font-size: 40px;
-                left: 12px;
-                top: 6px;
-            }
-            .love-message-box .quote-mark.right {
-                right: 12px;
-                bottom: 6px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-title {
-                font-size: clamp(28px, 8vw, 40px);
-            }
-            .hero-sub {
-                font-size: clamp(16px, 4vw, 22px);
-            }
-            .nickname-pill {
-                padding: 6px 14px;
-                font-size: clamp(14px, 2.5vw, 18px);
-            }
-            .nickname-pill.special {
-                padding: 6px 18px;
-                font-size: clamp(16px, 3vw, 22px);
-            }
-            .nicknames-grid {
-                gap: 10px 12px;
-            }
-            .story-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 10px;
-            }
-            .story-card .emoji-big {
-                font-size: 26px;
-            }
-            .story-card h4 {
-                font-size: 16px;
-            }
-            .story-card p {
-                font-size: 12px;
-            }
-            .cta-group {
-                flex-direction: column;
-                align-items: center;
-                gap: 14px;
-            }
-            .btn-primary {
-                width: 100%;
-                justify-content: center;
-            }
-            .btn-secondary {
-                width: 100%;
-                justify-content: center;
-            }
-        }
-
-        /* ============================================================
-                   UTILITY / ANIMATIONS
-                   ============================================================ */
-        @keyframes fadeUp {
-            0% {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in {
-            animation: fadeUp 0.8s ease-out forwards;
-        }
-
-        .delay-1 {
-            animation-delay: 0.15s;
-            opacity: 0;
-        }
-        .delay-2 {
-            animation-delay: 0.3s;
-            opacity: 0;
-        }
-        .delay-3 {
-            animation-delay: 0.45s;
-            opacity: 0;
-        }
-        .delay-4 {
-            animation-delay: 0.6s;
-            opacity: 0;
-        }
-        .delay-5 {
-            animation-delay: 0.75s;
-            opacity: 0;
-        }
-        .delay-6 {
-            animation-delay: 0.9s;
-            opacity: 0;
-        }
-
-        /* scrollbar */
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0d0405;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #ff4d6d;
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #c9184a;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Kavitha 🩷</title>
+
+<!-- Google Fonts: Dancing Script for romantic script, Quicksand for soft rounded body text -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  /* ---------------------------------------------------
+     DESIGN TOKENS
+     Palette: pale pink base, light pink / soft rose accents,
+     a whisper of rose-gold for warmth.
+  --------------------------------------------------- */
+  :root{
+    --pale-pink: #FFF0F5;
+    --cream: #FFF8F0;
+    --light-pink: #FFB6C1;
+    --soft-rose: #FF69B4;
+    --deep-rose: #E8558F;
+    --rose-gold: #E0BFB8;
+    --white: #FFFFFF;
+    --ink: #6b4a52;
+    --ink-soft: #9a7680;
+    --glass-bg: rgba(255, 255, 255, 0.45);
+    --glass-border: rgba(255, 182, 193, 0.55);
+    --shadow-pink: rgba(255, 105, 180, 0.18);
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    font-family: 'Quicksand', sans-serif;
+    color: var(--ink);
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: linear-gradient(160deg, var(--pale-pink) 0%, #FFE4EC 35%, var(--cream) 100%);
+    position: relative;
+  }
+
+  /* Respect reduced motion preference */
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  }
+
+  a, button{ font-family: inherit; }
+
+  /* ---------------------------------------------------
+     BACKGROUND: soft blurred gradient orbs
+  --------------------------------------------------- */
+  .orb{
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(60px);
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.55;
+  }
+  .orb--1{ width: 420px; height: 420px; top: -120px; left: -100px; background: radial-gradient(circle, var(--light-pink), transparent 70%); }
+  .orb--2{ width: 380px; height: 380px; bottom: -140px; right: -120px; background: radial-gradient(circle, var(--soft-rose), transparent 70%); }
+  .orb--3{ width: 300px; height: 300px; top: 40%; left: 60%; background: radial-gradient(circle, var(--rose-gold), transparent 70%); opacity: 0.35; }
+
+  /* ---------------------------------------------------
+     FLOATING HEARTS
+  --------------------------------------------------- */
+  #heart-field{
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .floating-heart{
+    position: absolute;
+    bottom: -10%;
+    color: var(--light-pink);
+    opacity: 0.7;
+    animation-name: float-up;
+    animation-timing-function: ease-in;
+    animation-iteration-count: infinite;
+    user-select: none;
+  }
+  @keyframes float-up{
+    0%{ transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
+    10%{ opacity: 0.75; }
+    50%{ transform: translateY(-55vh) translateX(20px) rotate(15deg); }
+    90%{ opacity: 0.5; }
+    100%{ transform: translateY(-110vh) translateX(-15px) rotate(-10deg); opacity: 0; }
+  }
+
+  /* ---------------------------------------------------
+     LAYOUT WRAPPER
+  --------------------------------------------------- */
+  main{
+    position: relative;
+    z-index: 2;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 64px 24px 100px;
+  }
+
+  /* ---------------------------------------------------
+     GLASS CARD
+  --------------------------------------------------- */
+  .glass{
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    border-radius: 28px;
+    box-shadow: 0 8px 32px var(--shadow-pink);
+  }
+
+  /* ---------------------------------------------------
+     HERO
+  --------------------------------------------------- */
+  .hero{
+    text-align: center;
+    padding: 56px 32px 48px;
+    margin-bottom: 56px;
+  }
+
+  .hero-eyebrow{
+    font-size: 0.95rem;
+    color: var(--deep-rose);
+    letter-spacing: 0.02em;
+    margin-bottom: 6px;
+  }
+
+  .hero-name{
+    font-family: 'Dancing Script', cursive;
+    font-weight: 700;
+    font-size: clamp(3.5rem, 12vw, 7rem);
+    line-height: 1.1;
+    background: linear-gradient(90deg, var(--soft-rose), var(--deep-rose) 45%, var(--rose-gold));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 8px;
+  }
+
+  .hero-sub{
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(1.4rem, 4vw, 2rem);
+    color: var(--deep-rose);
+    margin-bottom: 28px;
+  }
+
+  /* Nickname badges */
+  .badges{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+
+  .badge{
+    position: relative;
+    padding: 10px 22px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #FFFFFF, var(--pale-pink));
+    border: 1px solid var(--light-pink);
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--deep-rose);
+    box-shadow: 0 0 14px rgba(255, 105, 180, 0.35);
+    overflow: visible;
+  }
+
+  .badge--sparkle{
+    background: linear-gradient(135deg, #FFF, #FFE1EC);
+    box-shadow: 0 0 20px rgba(255, 105, 180, 0.55);
+  }
+
+  .badge--sparkle::before,
+  .badge--sparkle::after{
+    content: '✦';
+    position: absolute;
+    color: var(--soft-rose);
+    font-size: 0.7rem;
+    animation: twinkle 1.8s ease-in-out infinite;
+  }
+  .badge--sparkle::before{ top: -6px; right: -4px; animation-delay: 0s; }
+  .badge--sparkle::after{ bottom: -6px; left: -6px; font-size: 0.55rem; animation-delay: 0.6s; }
+
+  @keyframes twinkle{
+    0%, 100%{ opacity: 0.2; transform: scale(0.8); }
+    50%{ opacity: 1; transform: scale(1.2); }
+  }
+
+  /* Love message */
+  .love-message{
+    max-width: 620px;
+    margin: 0 auto 40px;
+    font-size: 1.08rem;
+    line-height: 1.9;
+    color: var(--ink-soft);
+  }
+
+  .love-message .highlight{
+    font-family: 'Dancing Script', cursive;
+    font-weight: 600;
+    font-size: 1.35em;
+    color: var(--deep-rose);
+    text-shadow: 0 0 12px rgba(255, 105, 180, 0.45);
+  }
+
+  /* Buttons */
+  .cta-row{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px;
+  }
+
+  .btn{
+    position: relative;
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+    padding: 15px 36px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.01em;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .btn:active{ transform: scale(0.97); }
+
+  .btn-primary{
+    background: linear-gradient(135deg, var(--soft-rose), var(--deep-rose));
+    color: #fff;
+    box-shadow: 0 8px 22px rgba(232, 85, 143, 0.4);
+  }
+  .btn-primary:hover{ box-shadow: 0 10px 26px rgba(232, 85, 143, 0.55); transform: translateY(-2px); }
+
+  .btn-secondary{
+    background: #fff;
+    color: var(--deep-rose);
+    border: 1.5px solid var(--light-pink);
+    box-shadow: 0 6px 16px rgba(255, 182, 193, 0.35);
+  }
+  .btn-secondary:hover{ background: var(--pale-pink); transform: translateY(-2px); }
+
+  .btn-message{
+    display: block;
+    margin-top: 18px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
+    color: var(--deep-rose);
+    min-height: 2.2rem;
+  }
+
+  /* Ripple effect */
+  .ripple{
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    transform: scale(0);
+    animation: ripple-anim 0.6s ease-out;
+    pointer-events: none;
+  }
+  @keyframes ripple-anim{
+    to{ transform: scale(4); opacity: 0; }
+  }
+
+  /* ---------------------------------------------------
+     STORY SECTION
+  --------------------------------------------------- */
+  .section-title{
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    color: var(--deep-rose);
+    margin-bottom: 8px;
+  }
+
+  .section-lead{
+    text-align: center;
+    color: var(--ink-soft);
+    margin-bottom: 36px;
+    font-size: 1rem;
+  }
+
+  .story-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+
+  .story-card{
+    padding: 28px 22px;
+    text-align: center;
+  }
+
+  .story-card .emoji{
+    font-size: 2rem;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .story-card h3{
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.6rem;
+    color: var(--deep-rose);
+    margin-bottom: 10px;
+  }
+
+  .story-card p{
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: var(--ink-soft);
+  }
+
+  /* Footer */
+  footer{
+    text-align: center;
+    margin-top: 60px;
+    color: var(--ink-soft);
+    font-size: 0.9rem;
+  }
+
+  footer .heart-small{ color: var(--soft-rose); }
+
+  /* Burst hearts container */
+  #burst-field{
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 5;
+  }
+  .burst-heart{
+    position: absolute;
+    font-size: 1.6rem;
+    animation: burst-out 1.1s ease-out forwards;
+  }
+  @keyframes burst-out{
+    0%{ transform: translate(0,0) scale(0.6); opacity: 1; }
+    100%{ transform: translate(var(--tx), var(--ty)) scale(1.1); opacity: 0; }
+  }
+
+  /* Responsive tweaks */
+  @media (max-width: 480px){
+    .hero{ padding: 40px 18px 32px; }
+    .btn{ padding: 13px 26px; font-size: 0.92rem; }
+    main{ padding: 40px 16px 70px; }
+  }
+</style>
 </head>
 <body>
 
-    <!-- ===== BACKGROUND ORBS ===== -->
-    <div class="bg-canvas">
-        <div class="gradient-orb orb1"></div>
-        <div class="gradient-orb orb2"></div>
-        <div class="gradient-orb orb3"></div>
+<!-- Background decorative orbs -->
+<div class="orb orb--1"></div>
+<div class="orb orb--2"></div>
+<div class="orb orb--3"></div>
+
+<!-- Floating hearts container, populated by JS -->
+<div id="heart-field" aria-hidden="true"></div>
+
+<!-- Container for the "Surprise Me" heart burst -->
+<div id="burst-field" aria-hidden="true"></div>
+
+<main>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero glass">
+    <p class="hero-eyebrow">for the girl who has all my heart</p>
+    <h1 class="hero-name">Kavitha</h1>
+    <p class="hero-sub">my Ammadu, my sweetest sweety ✿</p>
+
+    <div class="badges">
+      <span class="badge">Ammadu</span>
+      <span class="badge badge--sparkle">Sweety</span>
+      <span class="badge">Lucky</span>
+      <span class="badge">Girl</span>
+      <span class="badge">Boy</span>
     </div>
 
-    <!-- ===== PARTICLES ===== -->
-    <div class="particles-container" id="particles"></div>
+    <p class="love-message">
+      Every ordinary day turns into something worth remembering the moment you're in it.
+      You're my <span class="highlight">favorite person</span> to talk to, my
+      <span class="highlight">softest place to land</span>, and the reason my
+      <span class="highlight">luckiest days</span> always seem to have you in them.
+      This little page is just a small note to say — thank you for being exactly, wonderfully you.
+    </p>
 
-    <!-- ===== MAIN ===== -->
-    <div class="main-wrapper">
-
-        <!-- ===== HERO ===== -->
-        <section class="hero fade-in">
-            <div class="hero-badge">✦ forever & always ✦</div>
-
-            <h1 class="hero-title">Kavitha</h1>
-            <p class="hero-sub">— my heart's true home —</p>
-
-            <div class="hero-divider">
-                <span class="line"></span>
-                <span class="icon">❤️</span>
-                <span class="line"></span>
-            </div>
-
-            <!-- Nicknames -->
-            <div class="nicknames-grid">
-                <span class="nickname-pill delay-1">Ammadu</span>
-                <span class="nickname-pill special delay-2">Sweety</span>
-                <span class="nickname-pill delay-3">Lucky</span>
-                <span class="nickname-pill delay-4">Girl</span>
-                <span class="nickname-pill delay-5">Boy</span>
-            </div>
-
-            <!-- Love Message -->
-            <div class="love-message-box fade-in delay-2">
-                <span class="quote-mark">“</span>
-                <span class="quote-mark right">“</span>
-                <p class="love-message-text">
-                    You are the <span class="highlight">sunshine</span> that wakes my soul,<br />
-                    the <span class="highlight">melody</span> that calms my storms,<br />
-                    and the <span class="highlight">home</span> my heart always knew.<br />
-                    <span style="font-family:'Dancing Script',cursive;font-size:clamp(18px,2vw,26px);color:#ffa5a5;display:inline-block;margin-top:6px;">
-                        Every day with you is poetry.
-                    </span>
-                </p>
-            </div>
-
-            <!-- CTA -->
-            <div class="cta-group fade-in delay-3">
-                <button class="btn-primary" id="loveBtn">
-                    <span class="heart-icon">❤️</span>
-                    <span id="btnText">I Love You</span>
-                </button>
-                <button class="btn-secondary" id="surpriseBtn">
-                    <span>✨</span> Surprise Me
-                </button>
-            </div>
-        </section>
-
-        <!-- ===== STORY / NICKNAMES SECTION ===== -->
-        <section class="story-section fade-in delay-4">
-            <div class="section-label">✦ the many names of my love ✦</div>
-
-            <div class="story-grid">
-                <div class="story-card">
-                    <span class="emoji-big">🌸</span>
-                    <h4>Ammadu</h4>
-                    <p>My sweetest flower,<br />the gentlest soul</p>
-                </div>
-                <div class="story-card">
-                    <span class="emoji-big">🍯</span>
-                    <h4>Sweety</h4>
-                    <p>You make life<br />so delightfully sweet</p>
-                </div>
-                <div class="story-card">
-                    <span class="emoji-big">🍀</span>
-                    <h4>Lucky</h4>
-                    <p>My fortune, my charm,<br />my lucky star</p>
-                </div>
-                <div class="story-card">
-                    <span class="emoji-big">👑</span>
-                    <h4>Girl</h4>
-                    <p>My queen, my muse,<br />my everything</p>
-                </div>
-                <div class="story-card">
-                    <span class="emoji-big">💪</span>
-                    <h4>Boy</h4>
-                    <p>My partner, my rock,<br />my forever</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== FOOTER ===== -->
-        <footer class="footer-love fade-in delay-5">
-            <div class="hearts-line">♡ ♥ ♡ ♥ ♡</div>
-            <p>made with infinite love · for Kavitha · 2026</p>
-        </footer>
-
+    <div class="cta-row">
+      <button class="btn btn-primary" id="loveBtn">I Love You</button>
+      <button class="btn btn-secondary" id="surpriseBtn">Surprise Me</button>
     </div>
+    <p class="btn-message" id="loveMessageOutput"></p>
+  </section>
 
-    <script>
-        // ============================================================
-        // PARTICLES
-        // ============================================================
-        (function createParticles() {
-            const container = document.getElementById('particles');
-            const symbols = ['♥', '❤', '♡', '✦', '✧', '♥', '❥'];
-            const count = 35;
+  <!-- ================= STORY SECTION ================= -->
+  <section>
+    <h2 class="section-title">why every name fits you</h2>
+    <p class="section-lead">five little nicknames, five little reasons</p>
 
-            for (let i = 0; i < count; i++) {
-                const el = document.createElement('span');
-                el.className = 'particle';
-                el.textContent = symbols[i % symbols.length];
-                el.style.left = Math.random() * 100 + '%';
-                el.style.fontSize = (14 + Math.random() * 30) + 'px';
-                el.style.animationDuration = (18 + Math.random() * 28) + 's';
-                el.style.animationDelay = (Math.random() * 25) + 's';
-                el.style.opacity = 0.06 + Math.random() * 0.12;
-                container.appendChild(el);
-            }
-        })();
+    <div class="story-grid">
+      <div class="story-card glass">
+        <span class="emoji">🌸</span>
+        <h3>Ammadu</h3>
+        <p>The name that feels like home — soft, familiar, and only ever meant for you.</p>
+      </div>
+      <div class="story-card glass">
+        <span class="emoji">🍬</span>
+        <h3>Sweety</h3>
+        <p>Because you make even the hardest days feel a little sweeter, just by being around.</p>
+      </div>
+      <div class="story-card glass">
+        <span class="emoji">🍀</span>
+        <h3>Lucky</h3>
+        <p>Finding you still feels like the best kind of luck I never saw coming.</p>
+      </div>
+      <div class="story-card glass">
+        <span class="emoji">🎀</span>
+        <h3>Girl</h3>
+        <p>Simple, warm, and always said with a smile — my favorite girl, always.</p>
+      </div>
+      <div class="story-card glass">
+        <span class="emoji">😄</span>
+        <h3>Boy</h3>
+        <p>Our little inside joke — the nickname that always gets a laugh out of both of us.</p>
+      </div>
+    </div>
+  </section>
 
-        // ============================================================
-        // LOVE BUTTON — cycle messages
-        // ============================================================
-        const loveBtn = document.getElementById('loveBtn');
-        const btnText = document.getElementById('btnText');
-        const messages = [
-            'I Love You',
-            'You\'re My World',
-            'My Ammadu ❤️',
-            'Forever Yours',
-            'My Sweety 🌸',
-            'You\'re My Lucky',
-            'My Girl, My Boy',
-            'Infinity ♾️'
-        ];
-        let msgIndex = 0;
+  <footer>
+    made with a <span class="heart-small">♥</span> just for Kavitha
+  </footer>
 
-        loveBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            msgIndex = (msgIndex + 1) % messages.length;
-            btnText.textContent = messages[msgIndex];
+</main>
 
-            // pulse
-            this.style.transform = 'scale(0.92)';
-            setTimeout(() => { this.style.transform = ''; }, 180);
+<script>
+  /* =========================================================
+     1. FLOATING HEARTS BACKGROUND
+     Continuously spawns light-pink heart glyphs that drift
+     upward and fade, at random horizontal positions/speeds.
+  ========================================================= */
+  const heartField = document.getElementById('heart-field');
+  const heartGlyphs = ['♥', '❤', '♡'];
+  const heartColors = ['#FFB6C1', '#FF69B4', '#FFD1DC'];
 
-            // ripple
-            const ripple = document.createElement('span');
-            ripple.style.cssText = `
-                    position: absolute; inset: 0; border-radius: 60px;
-                    background: rgba(255,255,255,0.12);
-                    transform: scale(0);
-                    animation: rippleOut 0.7s ease-out forwards;
-                    pointer-events: none; z-index: 0;
-                `;
-            this.appendChild(ripple);
-            setTimeout(() => ripple.remove(), 700);
+  function spawnHeart(){
+    const heart = document.createElement('span');
+    heart.className = 'floating-heart';
+    heart.textContent = heartGlyphs[Math.floor(Math.random() * heartGlyphs.length)];
 
-            if (!document.getElementById('rippleStyle')) {
-                const style = document.createElement('style');
-                style.id = 'rippleStyle';
-                style.textContent = `
-                        @keyframes rippleOut {
-                            0%   { transform: scale(0); opacity: 0.8; }
-                            100% { transform: scale(2.5); opacity: 0; }
-                        }
-                    `;
-                document.head.appendChild(style);
-            }
-        });
+    const size = 14 + Math.random() * 22; // 14px - 36px
+    const left = Math.random() * 100; // vw
+    const duration = 10 + Math.random() * 10; // 10s - 20s
+    const delay = Math.random() * 4;
 
-        // ============================================================
-        // SURPRISE BUTTON — confetti-like heart burst
-        // ============================================================
-        const surpriseBtn = document.getElementById('surpriseBtn');
+    heart.style.left = left + 'vw';
+    heart.style.fontSize = size + 'px';
+    heart.style.color = heartColors[Math.floor(Math.random() * heartColors.length)];
+    heart.style.animationDuration = duration + 's';
+    heart.style.animationDelay = delay + 's';
 
-        surpriseBtn.addEventListener('click', function() {
-            // create 40 floating hearts that explode outward
-            const colors = ['#ff4d6d', '#ff8a9e', '#ffb3b3', '#f7c948', '#ff6b81', '#fff0f0'];
-            const container = document.body;
+    heartField.appendChild(heart);
 
-            for (let i = 0; i < 50; i++) {
-                const heart = document.createElement('span');
-                heart.textContent = ['♥', '❤', '♡', '✦', '✧'][i % 5];
-                heart.style.cssText = `
-                        position: fixed;
-                        font-size: ${16 + Math.random() * 30}px;
-                        color: ${colors[Math.floor(Math.random() * colors.length)]};
-                        pointer-events: none;
-                        z-index: 9999;
-                        left: ${50 + (Math.random() - 0.5) * 20}%;
-                        top: ${50 + (Math.random() - 0.5) * 20}%;
-                        opacity: 1;
-                        transition: all 1.2s cubic-bezier(0.34, 1.2, 0.64, 1);
-                        transform: scale(0.2) rotate(0deg);
-                        filter: drop-shadow(0 0 20px rgba(255,80,80,0.3));
-                    `;
-                container.appendChild(heart);
+    // Clean up after the animation finishes so the DOM doesn't grow forever
+    setTimeout(() => heart.remove(), (duration + delay) * 1000 + 500);
+  }
 
-                // force reflow
-                void heart.offsetWidth;
+  // Seed an initial batch, then keep a steady trickle going
+  for (let i = 0; i < 18; i++){
+    setTimeout(spawnHeart, i * 300);
+  }
+  setInterval(spawnHeart, 900);
 
-                const angle = Math.random() * 2 * Math.PI;
-                const distance = 150 + Math.random() * 400;
-                const dx = Math.cos(angle) * distance;
-                const dy = Math.sin(angle) * distance - 100;
+  /* =========================================================
+     2. "I LOVE YOU" BUTTON — cycles cute messages + ripple
+  ========================================================= */
+  const loveMessages = [
+    "You're my sunshine ☀️",
+    "My Sweet Ammadu 🌸",
+    "Be Mine ♥",
+    "Forever my Lucky girl 🍀",
+    "You make my heart smile 💗",
+    "So glad you're mine 🎀"
+  ];
+  let loveIndex = 0;
 
-                heart.style.transform = `translate(${dx}px, ${dy}px) rotate(${Math.random() * 720}deg) scale(1.2)`;
-                heart.style.opacity = '0';
+  const loveBtn = document.getElementById('loveBtn');
+  const loveOutput = document.getElementById('loveMessageOutput');
 
-                setTimeout(() => heart.remove(), 1400);
-            }
+  loveBtn.addEventListener('click', (e) => {
+    loveOutput.textContent = loveMessages[loveIndex % loveMessages.length];
+    loveIndex++;
+    createRipple(e, loveBtn);
+  });
 
-            // also change button text briefly
-            const original = surpriseBtn.innerHTML;
-            surpriseBtn.innerHTML = '💥 Love Explosion!';
-            surpriseBtn.style.transform = 'scale(0.92)';
-            setTimeout(() => {
-                surpriseBtn.innerHTML = original;
-                surpriseBtn.style.transform = '';
-            }, 1200);
-        });
+  function createRipple(event, button){
+    const circle = document.createElement('span');
+    const rect = button.getBoundingClientRect();
+    const diameter = Math.max(rect.width, rect.height);
+    circle.style.width = circle.style.height = diameter + 'px';
+    circle.style.left = (event.clientX - rect.left - diameter / 2) + 'px';
+    circle.style.top = (event.clientY - rect.top - diameter / 2) + 'px';
+    circle.classList.add('ripple');
 
-        // ============================================================
-        // CONSOLE LOVE NOTE
-        // ============================================================
-        console.log('%c❤️  KAVITHA — AMMADU · SWEETY · LUCKY · GIRL · BOY  ❤️',
-            'color: #ff6b81; font-size: 22px; font-weight: 700;');
-        console.log('%cYou are the poetry my heart never knew it needed.', 'color: #f0c0c0; font-size: 16px; font-style: italic;');
-        console.log('%c✦ forever yours ✦', 'color: #f7c948; font-size: 14px; letter-spacing: 4px;');
+    const existingRipple = button.querySelector('.ripple');
+    if (existingRipple) existingRipple.remove();
 
-        // ============================================================
-        // KEYBOARD SHORTCUT: press 'L' for love message cycle
-        // ============================================================
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'l' || e.key === 'L') {
-                loveBtn.click();
-            }
-            if (e.key === 's' || e.key === 'S') {
-                surpriseBtn.click();
-            }
-        });
-    </script>
+    button.appendChild(circle);
+    setTimeout(() => circle.remove(), 650);
+  }
+
+  /* =========================================================
+     3. "SURPRISE ME" BUTTON — bursts pastel hearts outward
+     from the button's position, then fades them away.
+  ========================================================= */
+  const surpriseBtn = document.getElementById('surpriseBtn');
+  const burstField = document.getElementById('burst-field');
+  const burstGlyphs = ['💗', '💕', '♥', '❤', '✨'];
+  const burstColors = ['#FF69B4', '#FFB6C1', '#FFFFFF', '#FFD1DC'];
+
+  surpriseBtn.addEventListener('click', (e) => {
+    createRipple(e, surpriseBtn);
+
+    const rect = surpriseBtn.getBoundingClientRect();
+    const originX = rect.left + rect.width / 2;
+    const originY = rect.top + rect.height / 2;
+
+    const burstCount = 18;
+    for (let i = 0; i < burstCount; i++){
+      const heart = document.createElement('span');
+      heart.className = 'burst-heart';
+      heart.textContent = burstGlyphs[Math.floor(Math.random() * burstGlyphs.length)];
+      heart.style.color = burstColors[Math.floor(Math.random() * burstColors.length)];
+      heart.style.left = originX + 'px';
+      heart.style.top = originY + 'px';
+
+      // Random outward direction & distance for the explosion feel
+      const angle = (Math.PI * 2 * i) / burstCount + (Math.random() * 0.5 - 0.25);
+      const distance = 100 + Math.random() * 140;
+      const tx = Math.cos(angle) * distance;
+      const ty = Math.sin(angle) * distance;
+
+      heart.style.setProperty('--tx', tx + 'px');
+      heart.style.setProperty('--ty', ty + 'px');
+
+      burstField.appendChild(heart);
+      setTimeout(() => heart.remove(), 1200);
+    }
+  });
+</script>
 
 </body>
 </html>
